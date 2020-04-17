@@ -36,7 +36,7 @@
 
 * 먼저, pycharm을 켜서 새로운 프로젝트를 생성해봅시다.
 
-<img src="ee.PNG" height="300" width="800">
+<img src="ee.PNG" height="300" width="600" align="center">
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
