@@ -36,21 +36,21 @@
 
 * 먼저, pycharm을 켜서 새로운 프로젝트를 생성해봅시다.
 
-<img src="ee.PNG" height="300" width="600">
+<img src="git/opencv/image/ee.PNG" height="300" width="600">
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
-<img src="2.PNG" height="300" width="600">
+<img src="git/opencv/image/2.PNG" height="300" width="600">
 
 커서가 깜빡거리는게 보이시나요? 
  
 
 ``pip install opencv-contrib-python``을 치면 pycharm에서 자동으로
 opencv가 설치가 됩니다.
-<img src="333.PNG" height="300" width="600">
+<img src="git/opencv/image/333.PNG" height="300" width="600">
 
 똑같은 방식으로 ``pip install numpy``를 입력해주세요.
-<img src="3333.PNG" height="300" width="600">
+<img src="git/opencv/image/3333.PNG" height="300" width="600">
 
 dlib을 사용하기 위해서는 우선 ```pip install cmake```를 입력해서 `cmake`를 설치해주세요.
 
