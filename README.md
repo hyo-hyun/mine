@@ -40,7 +40,7 @@
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
-<img src="image/2.PNG" height="300" width="600">
+<img src="image/2.PNG" height="150" width="150">
 
 커서가 깜빡거리는게 보이시나요? 
  
@@ -62,7 +62,7 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 <img src="image/es.png" height="300" width="600">
 설치를 완료 하셨으면 다시 pycharm으로 돌아가서 이전과 같이 terminal 창에서 `pip install dlib`을 해줍니다.
 
-1단계를 완료했으니 이젠 python을 작성해봅시다.
+1단계를 완료했으니 이젠 python 코드를 작성해봅시다.
 
 # 2단계
 
