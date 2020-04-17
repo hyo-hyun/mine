@@ -36,21 +36,21 @@
 
 * 먼저, pycharm을 켜서 새로운 프로젝트를 생성해봅시다.
 
-<img src="git/opencv/image/ee.PNG" height="300" width="600">
+<img src="image/ee.PNG" height="300" width="600">
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
-<img src="git/opencv/image/2.PNG" height="300" width="600">
+<img src="image/2.PNG" height="300" width="600">
 
 커서가 깜빡거리는게 보이시나요? 
  
 
 ``pip install opencv-contrib-python``을 치면 pycharm에서 자동으로
 opencv가 설치가 됩니다.
-<img src="git/opencv/image/333.PNG" height="300" width="600">
+<img src="image/333.PNG" height="300" width="600">
 
 똑같은 방식으로 ``pip install numpy``를 입력해주세요.
-<img src="git/opencv/image/3333.PNG" height="300" width="600">
+<img src="image/3333.PNG" height="300" width="600">
 
 dlib을 사용하기 위해서는 우선 ```pip install cmake```를 입력해서 `cmake`를 설치해주세요.
 
@@ -59,7 +59,7 @@ https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=C
 로 들어가셔서 visual studio를 깔아주세요.
 
 visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 클릭해서 설치해주세요.
-<img src="git/opencv/image/es.png" height="300" width="600">
+<img src="image/es.png" height="300" width="600">
 설치를 완료 하셨으면 다시 pycharm으로 돌아가서 이전과 같이 terminal 창에서 `pip install dlib`을 해줍니다.
 
 1단계를 완료했으니 이젠 python을 작성해봅시다.
