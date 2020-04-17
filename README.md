@@ -54,5 +54,15 @@ opencv가 설치가 됩니다.
 
 dlib을 사용하기 위해서는 우선 ```pip install cmake```를 입력해서 `cmake`를 설치해주세요.
 
+dlib은  c++로 짜여진 언어이기 때문에 compiler가 필요합니다. 
+https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=Community&rel=16
+로 들어가셔서 visual studio를 깔아주세요.
 
+visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 클릭해서 설치해주세요.
+<img src="git/opencv/image/es.png" height="300" width="600">
+설치를 완료 하셨으면 다시 pycharm으로 돌아가서 이전과 같이 terminal 창에서 `pip install dlib`을 해줍니다.
+
+1단계를 완료했으니 이젠 python을 작성해봅시다.
+
+# 2단계
 
