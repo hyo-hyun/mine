@@ -40,7 +40,7 @@
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
-<img src="image/2.PNG" height="150" width="300">
+<img src="image/2.PNG" height="150" width="300" align="center">
 
 커서가 깜빡거리는게 보이시나요? 
  
