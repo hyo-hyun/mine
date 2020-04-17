@@ -1,4 +1,4 @@
-#<span style="color:#d3d3d3">python을 이용한 얼굴인식</span>
+
 ###1. opencv를 활용하자
 ####opencv는 Open Source Computer Vision 의 약자이다.
 
