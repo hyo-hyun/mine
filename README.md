@@ -55,7 +55,7 @@ opencv가 설치가 됩니다.
 https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=Community&rel=16
 
 
-로 들어가셔서 visual studio를 깔아주세요.
+로 들어가서 visual studio를 깔아주세요.
 
 
 visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 클릭해서 설치해주세요.
@@ -94,7 +94,7 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 
 # 변수 detector과 predictor를 사용하여 얼굴과 얼굴 특징점을 찾아봅시다.
-#요기서 shape_predictor는 다운받은 dat파일을 이용할 껀데요. 머신러닝으로 학습된 모델파일을 그대로 사용해보겠습니다.
+# 머신러닝으로 학습된 모델인 ~.dat파일을 그대로 사용해보겠습니다.
 
 # --------------------------------------------------------------
 
@@ -146,7 +146,7 @@ img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face
 ```
 
 ```python
-    top_left = np.min(shape_2d,axis=0)
+    top_left = np.min(shape_2d,axis=0)                     
     bottom_right =np.max(shape_2d, axis=0)
     center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
 ```
@@ -158,4 +158,4 @@ img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face
     cv2.circle(img, center=tuple((center_x, center_y)), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
 ```
 
-`python manage.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
+>`python manage.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
