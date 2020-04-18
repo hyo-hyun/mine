@@ -158,8 +158,8 @@ while True:
 <img src="image/point.PNG" height="100" width="200">
 
 --------------------------------------
-## 얼굴에 라이언을 띄워봅시다.???맞춤법 다시
-1. while문 밖 predictor 밑에 줄에 추가해줍시다.
+## 라이언 얼굴을 띄워봅시다.
+1. while문 밖; predictor 밑에 줄에 추가해줍시다.
 ```python
 overlay = cv2.imread('ryan_transparent', cv2.IMREAD_UNCHANGED)
 
