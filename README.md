@@ -211,9 +211,9 @@ cv2.imshow('result', result)   # 라이언 얼굴 띄우기
 ```
 
 >`python main.py`를 입력하여 결과를 확인합니다.
-<img src="image/ryan.PNG" height="100" width="200">
+<img src="image/ryan.png" height="100" width="200">
 
-#전체 소스 코드
+# 전체 소스 코드
 ```python
 import cv2, dlib,sys
 import numpy as np
