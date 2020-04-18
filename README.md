@@ -5,10 +5,7 @@
 
 
 * Open Source: 코드를 누구나 볼 수 있게 개방한 소스 
-
-
 * Computer Vision: 사람의 시각 체계의 기능을 컴퓨터로 구현하는 것.
-
 * 즉 opencv 는 사람의 눈을 대신한다고 생각하면 된다.
 
 
@@ -19,7 +16,6 @@
 * Library: 컴퓨터 프로그램에서 자주 사용되는 부분 프로그램들을 모아 놓은 것.
 ### 3. numpy를 활용하자
 * Numpy는 행렬 연산 library이다.
-
 * 외부 패키지이므로 import 명령어를 통해 불러와야 한다.
 ```python
     import numpy as np
@@ -115,24 +111,23 @@ while True:
 ```
 
 >terminal 창에서 `python main.py`를 실행시키면 동영상이 켜지는 것을 볼 수 있습니다.
-
-<br>
 ----------------------------------------------
-##그 다음 얼굴과 얼굴 특징점을 찾아봅시다.
-
 >while문 밖에서 변수 detector과 predictor를 사용하여 얼굴과 얼굴 특징점을 찾아봅시다.
-<br>요기서 shape_predictor는 다운받은 dat파일을 이용할 껀데요. 머신러닝으로 학습된 모델파일을 그대로 사용해보겠습니다.
+
+ 요기서 shape_predictor는 다운받은 dat파일을 이용할 껀데요. 머신러닝으로 학습된 모델파일을 그대로 사용해보겠습니다.
 ```python
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
 ```
-다시 while문으로 돌아가서 얼굴을 찾아봅시다.
-```python
- # img에서 모든 얼굴 찾아봅시다.
-    faces = detector(img) #detector(img) 
+##while 문 안에서 얼굴과 얼굴 특징점을 찾아봅시다.
 
-# 찾은 모든 얼굴에서 첫번째 얼굴만 가져옵시다.
-    face = faces[0] #face= faces[0]
+
+```python
+ 
+    faces = detector(img) #detector(img)    # img에서 모든 얼굴 찾아봅시다.
+
+
+    face = faces[0] #face= faces[0]         # 찾은 모든 얼굴에서 첫번째 얼굴만 가져옵시다.
 ```
 cv2.rectangle를 이용하여 얼굴에 네모칸을 쳐 봅시다.
 ```python
@@ -142,9 +137,9 @@ img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face
 ```python
     dlib_shape = predictor(img,face)
 
-#dlib 객체를 numpy객체로 변환해서 좌표축 개념으로 shape_2d라는 변수에 저장해봅시다.
-
-    shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()])
+    shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()]) 
+    
+    #dlib 객체를 numpy객체로 변환해서 좌표축 개념으로 shape_2d라는 변수에 저장해봅시다.
 ```
 원 모양으로 얼굴 특징점을 추출해봅시다.
 ```
@@ -152,16 +147,13 @@ img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face
         cv2.circle(img, center=tuple(s), radius=1, color=(255, 255, 255), thickness=2, lineType=cv2.LINE_AA)
 ```
 
-
-<img src=
-
 ```python
     top_left = np.min(shape_2d,axis=0)
     bottom_right =np.max(shape_2d, axis=0)
     center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
 ```
 
-얼굴특징점을 다른 색깔로 잡아봅시다.
+
 ```python
     cv2.circle(img, center=tuple(top_left), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
     cv2.circle(img, center=tuple(bottom_right), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
