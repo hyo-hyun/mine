@@ -90,6 +90,12 @@ cap = cv2.VideoCapture('video.mp4')
 scaler = 0.3      
 # 동영상 사이즈를 줄이기 위해 scaler 라는 변수를 이용해서 크기를 줄여 봅시다.
 
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+
+# 변수 detector과 predictor를 사용하여 얼굴과 얼굴 특징점을 찾아봅시다.
+#요기서 shape_predictor는 다운받은 dat파일을 이용할 껀데요. 머신러닝으로 학습된 모델파일을 그대로 사용해보겠습니다.
+
 # --------------------------------------------------------------
 
 #비디오가 실행되는 동안 일어날 일을 while문을 사용해서 코드를 짜줍니다.
@@ -111,16 +117,8 @@ while True:
 ```
 
 >terminal 창에서 `python main.py`를 실행시키면 동영상이 켜지는 것을 볼 수 있습니다.
-----------------------------------------------
->while문 밖에서 변수 detector과 predictor를 사용하여 얼굴과 얼굴 특징점을 찾아봅시다.
 
- 요기서 shape_predictor는 다운받은 dat파일을 이용할 껀데요. 머신러닝으로 학습된 모델파일을 그대로 사용해보겠습니다.
-```python
-detector = dlib.get_frontal_face_detector()
-predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
-```
-##while 문 안에서 얼굴과 얼굴 특징점을 찾아봅시다.
-
+## while 문 안에서 얼굴과 얼굴 특징점을 찾아봅시다.
 
 ```python
  
