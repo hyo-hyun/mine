@@ -69,7 +69,7 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 
 먼저 opencv(즉, 프로젝트명)을 클릭하신 후 동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
 
-<img src="image/new.png" height="300" width="600"><br><br>
+<img src="image/new.png" height="200" width="400"><br><br>
 main.py 파일을 생성해주세요. <br>
 -----------------------
 이제 코드를 작성해봅시다.
