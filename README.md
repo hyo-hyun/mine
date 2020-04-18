@@ -48,15 +48,13 @@ opencv가 설치가 됩니다.
 똑같은 방식으로 ``pip install numpy``를 입력해주세요.
 <img src="image/numpy.png" height="300" width="600">
 
->dlib을 사용하기 위해서는 우선 ```pip install cmake```를 입력해서 `cmake`를 설치해주세요.
+dlib을 사용하기 위해서는 우선 ```pip install cmake```를 입력해서 `cmake`를 설치해주세요.
 
->dlib은  c++로 짜여진 언어이기 때문에 compiler가 필요합니다. 
-
-https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=Community&rel=16
-
+dlib은  c++로 짜여진 언어이기 때문에 compiler가 필요합니다. 
+1. dlib을 설치하기 전 python 64bit를 설치해주세요 ㅠㅠcompiler가 64bit인데 python이 32bit이면 `pip install dlib`할 때 오류가 뜬답니다. ㅠㅠ
+2. https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=Community&rel=16
 
 로 들어가서 visual studio를 깔아주세요.
-
 
 visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 클릭해서 설치해주세요.
 
