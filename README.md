@@ -75,3 +75,165 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 
 # 2단계
 
+먼저 opencv(즉, 프로젝트명)을 클릭하신 후 동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
+
+<img src="image/new.png" height="300" width="600"><br><br>
+main.py 파일을 생성해주세요. <br>
+
+이제 코드를 작성해봅시다.
+
+```python
+import cv2,dlib,sys
+import numpy as np
+
+cap = cv2.VideoCapture('video.mp4') 
+
+scaler = 0.3
+
+while True:
+    ret, img = cap.read()
+    if not ret:
+        break
+    
+     img = cv2.resize(img, (int(img.shape[1] * scaler), int(img.shape[0] * scaler)) )
+    
+    cv2.imshow('img',img)
+    cv2.waitKey(1)
+
+
+```
+```python
+# import를 사용하여 cv2,dlib,numpy를 불러옵니다.
+
+import cv2,dlib,sys
+import numpy as np
+
+
+# video.mp4 동영상 파일 로드 하겠다는 의미이며, 
+# 파일 이름대신 0을 넣으면 웹캠이 켜지고 여러분 얼굴로 테스트가 가능합니다.
+
+cap = cv2.VideoCapture('video.mp4') 
+
+# 동영상 사이즈를 줄이기 위해 scaler 라는 변수를 이용해서 크기를 줄여 봅시다.
+scaler = 0.3
+
+
+#비디오가 실행되는 동안 일어날 일을 while문을 사용해서 코드를 짜줍니다.
+
+while True:
+    #cap.read() : 동영상 파일에서 frame 단위로 읽어줍니다.
+
+    ret, img = cap.read()
+    if not ret:
+        break
+    
+    # cv2.resize(img, dsize) : img를 dsize 크기로 조절해줍니다.
+
+    img = cv2.resize(img, (int(img.shape[1] * scaler), int(img.shape[0] * scaler)) )
+    
+    # 원본이미지를 ori라는 이름으로 저장해봅시다.
+    ori=img.copy()
+
+    #'img'라는 이름의 윈도우에 img를 띄울 수 있습니다.
+    cv2.imshow('img',img)
+    # 1ms만큼 대기한다는 뜻이며, 이걸 넣어야 동영상이 제대로 보입니다.
+    cv2.waitKey(1)
+```
+
+terminal 창에서 `python main.py`를 실행시키면 동영상이 켜지는 것을 볼 수 있습니다.
+
+그 다음 얼굴과 얼굴 특징점을 찾아봅시다.
+```python
+
+import cv2, dlib,sys
+import numpy as np
+
+cap = cv2.VideoCapture('video.mp4')
+
+
+scaler = 0.3
+
+
+detector = dlib.get_frontal_face_detector()
+predictor =dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+
+
+while True:
+    ret, img = cap.read()
+    if not ret:
+        break
+
+
+
+    img = cv2.resize(img, (int(img.shape[1] * scaler), int(img.shape[0] * scaler)) )
+    ori = img.copy()
+
+    faces = detector(img)
+    face = faces[0]
+
+    dlib_shape = predictor(img,face)
+    shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()])
+
+    top_left = np.min(shape_2d,axis=0)
+    bottom_right =np.max(shape_2d, axis=0)
+    center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
+
+    img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face.bottom()), color=(255,255,255), thickness=2, lineType=cv2.LINE_AA)
+
+    for s in shape_2d:
+        cv2.circle(img, center=tuple(s), radius=1, color=(255, 255, 255), thickness=2, lineType=cv2.LINE_AA)
+    cv2.circle(img, center=tuple(top_left), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+    cv2.circle(img, center=tuple(bottom_right), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+    cv2.circle(img, center=tuple((center_x, center_y)), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+
+    cv2.imshow('img',img)
+    cv2.waitKey(1)
+```
+먼저 detector 라는 변수에 얼굴 디렉터 모듈을 초기화 시키고, predictor 라는 변수에 얼굴 특징점 모듈을 초기화 시켜줍시다.
+<br>요기서 shape_predictor는 다운받은 dat파일을 이용할 껀데요. 머신러닝으로 학습된 모델파일을 그대로 사용해보겠습니다.
+```python
+detector = dlib.get_frontal_face_detector()
+predictor = dlib.shape_predictor('shape_predictor_68_face_landmarks.dat')
+```
+다시 while문으로 돌아가서 얼굴을 찾아봅시다.
+```python
+ # img에서 모든 얼굴 찾아봅시다.
+    faces = detector(img) #detector(img) 
+
+# 찾은 모든 얼굴에서 첫번째 얼굴만 가져옵시다.
+    face = faces[0] #face= faces[0]
+```
+cv2.rectangle를 이용하여 얼굴에 네모칸을 쳐 봅시다.
+```python
+img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face.bottom()), color=(255,255,255), thickness=2, lineType=cv2.LINETYPE_AA)
+```
+얼굴 특징점을 추출해봅시다.
+```python
+    dlib_shape = predictor(img,face)
+
+#dlib 객체를 numpy객체로 변환해서 좌표축 개념으로 shape_2d라는 변수에 저장해봅시다.
+
+    shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()])
+```
+원 모양으로 얼굴 특징점을 추출해봅시다.
+```
+    for s in shape_2d:
+        cv2.circle(img, center=tuple(s), radius=1, color=(255, 255, 255), thickness=2, lineType=cv2.LINE_AA)
+```
+
+`python manage.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
+
+<img src=
+
+```python
+    top_left = np.min(shape_2d,axis=0)
+    bottom_right =np.max(shape_2d, axis=0)
+    center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
+```
+
+얼굴특징점을 다른 색깔로 잡아봅시다.
+```python
+    cv2.circle(img, center=tuple(top_left), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+    cv2.circle(img, center=tuple(bottom_right), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+    cv2.circle(img, center=tuple((center_x, center_y)), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+```
