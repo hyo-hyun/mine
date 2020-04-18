@@ -119,43 +119,35 @@ while True:
 >terminal 창에서 `python main.py`를 실행시키면 동영상이 켜지는 것을 볼 수 있습니다.
 
 ## while 문 안에서 얼굴과 얼굴 특징점을 찾아봅시다.
-
 ```python
+ while True:
+    ret, img = cap.read()
+    if not ret:
+        break
+    img = cv2.resize(img, (int(img.shape[1] * scaler), int(img.shape[0] * scaler)) )
+    ori = img.copy()  
  
-    faces = detector(img) #detector(img)    # img에서 모든 얼굴 찾아봅시다.
+    faces = detector(img)      # img에서 모든 얼굴 찾아봅시다.
+    face = faces[0]            # 찾은 모든 얼굴에서 첫번째 얼굴만 가져옵시다.  
 
-
-    face = faces[0] #face= faces[0]         # 찾은 모든 얼굴에서 첫번째 얼굴만 가져옵시다.
-```
-cv2.rectangle를 이용하여 얼굴에 네모칸을 쳐 봅시다.
-```python
-img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face.bottom()), color=(255,255,255), thickness=2, lineType=cv2.LINETYPE_AA)
-```
-얼굴 특징점을 추출해봅시다.
-```python
     dlib_shape = predictor(img,face)
-
-    shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()]) 
-    
+    shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()])  
     #dlib 객체를 numpy객체로 변환해서 좌표축 개념으로 shape_2d라는 변수에 저장해봅시다.
-```
-원 모양으로 얼굴 특징점을 추출해봅시다.
-```
-    for s in shape_2d:
-        cv2.circle(img, center=tuple(s), radius=1, color=(255, 255, 255), thickness=2, lineType=cv2.LINE_AA)
-```
 
-```python
-    top_left = np.min(shape_2d,axis=0)                     
+    top_left = np.min(shape_2d,axis=0)
     bottom_right =np.max(shape_2d, axis=0)
     center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
-```
 
+    img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face.bottom()), color=(255,255,255), thickness=2, lineType=cv2.LINE_AA)
+    #cv2.rectangle를 이용하여 얼굴에 네모칸을 쳐 봅시다.
 
-```python
+    for s in shape_2d:    #원 모양으로 얼굴 특징점을 추출해봅시다.
+        cv2.circle(img, center=tuple(s), radius=1, color=(255, 255, 255), thickness=2, lineType=cv2.LINE_AA)
     cv2.circle(img, center=tuple(top_left), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
     cv2.circle(img, center=tuple(bottom_right), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
     cv2.circle(img, center=tuple((center_x, center_y)), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
-```
 
+    cv2.imshow('img',img)
+    cv2.waitKey(1)
+```
 >`python manage.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
