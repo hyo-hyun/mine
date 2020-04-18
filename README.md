@@ -30,7 +30,7 @@
 
 * 먼저, pycharm을 켜서 새로운 프로젝트를 생성해봅시다.
 
-<img src="image/ee.PNG" height="300" width="600">
+<img src="image/project.PNG" height="300" width="600">
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
@@ -69,7 +69,7 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 
 먼저 opencv(즉, 프로젝트명)을 클릭하신 후 동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
 
-<img src="image/project.png" height="300" width="600"><br><br>
+<img src="image/new.png" height="300" width="600"><br><br>
 main.py 파일을 생성해주세요. <br>
 -----------------------
 이제 코드를 작성해봅시다.
