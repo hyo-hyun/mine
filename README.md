@@ -47,7 +47,7 @@ opencv가 설치가 됩니다.
 <img src="image/numpy.png" height="300" width="600">
 
 
-1. dlib을 설치하기 전 python 64bit를 설치해주세요 ㅠㅠcompiler가 64bit인데 python이 32bit이면 `pip install dlib`할 때 오류가 뜬답니다. ㅠㅠ
+1. dlib을 설치하기 전 python 3.x 64bit를 설치해주세요 . python이 32bit이면 `pip install dlib`할 때 오류가 뜬답니다. 
 2. dlib을 사용하기 위해서는 우선 ```pip install cmake```를 입력해서 `cmake`를 설치해주세요.
 <br> dlib은  c++로 짜여진 언어이기 때문에 compiler가 필요합니다.  
 https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=Community&rel=16
