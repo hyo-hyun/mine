@@ -131,10 +131,11 @@ while True:
     face = faces[0]            # 찾은 모든 얼굴에서 첫번째 얼굴만 가져옵시다.  
 
     dlib_shape = predictor(img,face)
+
     shape_2d =np.array([[p.x, p.y] for p in dlib_shape.parts()])  
     #dlib 객체를 numpy객체로 변환해서 좌표축 개념으로 shape_2d라는 변수에 저장해봅시다.
 
-    top_left = np.min(shape_2d,axis=0)
+    top_left = np.min(shape_2d,axis=0)                #얼굴의 좌상단, 우하단, 중심 부분을 잡아봅시다.
     bottom_right =np.max(shape_2d, axis=0)
     center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
 
@@ -143,9 +144,10 @@ while True:
 
     for s in shape_2d:    #원 모양으로 얼굴 특징점을 추출해봅시다.
         cv2.circle(img, center=tuple(s), radius=1, color=(255, 255, 255), thickness=2, lineType=cv2.LINE_AA)
-    cv2.circle(img, center=tuple(top_left), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
-    cv2.circle(img, center=tuple(bottom_right), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
-    cv2.circle(img, center=tuple((center_x, center_y)), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)
+
+    cv2.circle(img, center=tuple(top_left), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)    #얼굴의 좌상단을 자주색원으로 표시
+    cv2.circle(img, center=tuple(bottom_right), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA)  #얼굴의 우하단
+    cv2.circle(img, center=tuple((center_x, center_y)), radius=1, color=(255, 0, 255), thickness=4, lineType=cv2.LINE_AA) #얼굴의 중심
 
     cv2.imshow('img',img)
     cv2.waitKey(1)
