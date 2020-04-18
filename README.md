@@ -137,7 +137,7 @@ while True:
 
     top_left = np.min(shape_2d,axis=0)                #얼굴의 좌상단, 우하단, 중심 부분을 잡아봅시다.
     bottom_right =np.max(shape_2d, axis=0)
-    center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int)
+    center_x, center_y = np.mean(shape_2d, axis=0).astype(np.int) # 특징점의 평균을 구해서 중심부분을 잡습니다.numpy 행렬을 np.int 타입으로 변환합니다.
 
     img = cv2.rectangle(img, pt1=(face.left(), face.top()), pt2=( face.right(), face.bottom()), color=(255,255,255), thickness=2, lineType=cv2.LINE_AA)
     #cv2.rectangle를 이용하여 얼굴에 네모칸을 쳐 봅시다.
