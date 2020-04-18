@@ -116,6 +116,8 @@ while True:
 
 >terminal 창에서 `python main.py`를 실행시키면 동영상이 켜지는 것을 볼 수 있습니다.
 
+<img src="image/load.png" height="100" width="200">
+
 ## while 문 안에서 얼굴과 얼굴 특징점을 찾아봅시다.
 ```python
  while True:
@@ -152,3 +154,7 @@ while True:
 ```
 >`python main.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
 > Terminal 창에서 Ctrl+C  를 누르면 다시 코드를 작성할 수 있습니다.
+
+ <img src="image/point.png" height="100" width="200">
+
+--------------------------------------
