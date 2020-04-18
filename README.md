@@ -68,7 +68,7 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 
 
 1단계를 완료했으니 이젠 python 코드를 작성해봅시다.
-
+>> p
 # 2단계
 
 먼저 opencv(즉, 프로젝트명)을 클릭하신 후 동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
@@ -152,4 +152,5 @@ while True:
     cv2.imshow('img',img)
     cv2.waitKey(1)
 ```
->`python manage.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
+>`python main.py`를 입력하여 얼굴에 네모칸이 쳐지는지, 얼굴 특징점이 추출되는지 확인해봅시다.
+> Terminal 창에서 Ctrl+C  를 누르면 다시 코드를 작성할 수 있습니다.
