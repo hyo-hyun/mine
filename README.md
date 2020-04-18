@@ -34,7 +34,7 @@
 
 pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
-<img src="image/2.PNG" height="150" width="300" align="center">
+<img src="image/terminal.PNG" height="150" width="300" align="center">
 
 커서가 깜빡거리는게 보이시나요? 
  
@@ -57,7 +57,7 @@ https://visualstudio.microsoft.com/ko/thank-you-downloading-visual-studio/?sku=C
 visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 클릭해서 설치해주세요.
 
 
-<img src="image/es.png" height="300" width="600">
+<img src="image/visual.png" height="300" width="600">
 
 
 설치를 완료 하셨으면 다시 pycharm으로 돌아가서 이전과 같이 terminal 창에서 `pip install dlib`을 해줍니다.
@@ -69,7 +69,7 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 
 먼저 opencv(즉, 프로젝트명)을 클릭하신 후 동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
 
-<img src="image/new.png" height="300" width="600"><br><br>
+<img src="image/project.png" height="300" width="600"><br><br>
 main.py 파일을 생성해주세요. <br>
 -----------------------
 이제 코드를 작성해봅시다.
