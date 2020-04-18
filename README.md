@@ -41,10 +41,10 @@ pycharm 하단에 있는 Terminal 버튼을 클릭해줍니다.
 
 ``pip install opencv-contrib-python``을 치면 pycharm에서 자동으로
 opencv가 설치가 됩니다.
-<img src="image/opencv.PNG" height="300" width="600">
+<img src="image/opencv.PNG" height="200" width="400">
 
 똑같은 방식으로 ``pip install numpy``를 입력해주세요.
-<img src="image/numpy.png" height="300" width="600">
+<img src="image/numpy.png" height="200" width="400">
 
 
 1. dlib을 설치하기 전 python 3.x 64bit를 설치해주세요 . python이 32bit이면 `pip install dlib`할 때 오류가 뜬답니다. 
@@ -67,7 +67,7 @@ visual studio installer에서 `c++를 사용한 데스크톱 개발`버튼을 �
 
 # 2단계
 
-먼저 opencv(즉, 프로젝트명)을 클릭하신 후 동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
+먼저 opencv(즉, 프로젝트명)을 클릭하신 후 <BT동영상파일과 dat파일을 붙여넣기 해줍니다.<br>
 
 <img src="image/new.png" height="200" width="400"><br><br>
 main.py 파일을 생성해주세요. <br>
