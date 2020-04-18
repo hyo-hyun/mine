@@ -2,8 +2,6 @@
 ### 1. opencv를 활용하자
 #### opencv는 Open Source Computer Vision 의 약자이다.
 
-
-
 * Open Source: 코드를 누구나 볼 수 있게 개방한 소스 
 * Computer Vision: 사람의 시각 체계의 기능을 컴퓨터로 구현하는 것.
 * 즉 opencv 는 사람의 눈을 대신한다고 생각하면 된다.
